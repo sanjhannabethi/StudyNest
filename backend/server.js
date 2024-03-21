@@ -110,11 +110,44 @@ app.get('/v1/tasksAssigned', async(req, res)=>{
 
 app.post('/v1/assignTask', async(req, res)=>{
     try{
-        const mentorId = req.query.mentorId;
-        const title = req.query.title;
-        const fileContent = req.query.descriptionFile;
-        const deadlineDate = req.query.deadlineDate;
-        
+        // const mentorId = req.query.mentorId;
+        // const title = req.query.title;
+        // const fileContent = req.query.descriptionFile;
+        // const deadlineDate = req.query.deadlineDate;
+        // const deadlineTime = req.query.deadlineTime;
+        const mentorId = 2;
+        const title = 'Mokky';
+        const currentDate = new Date();
+        const deadlineDate = currentDate.toISOString().split('T')[0];
+        const deadlineTime = currentDate.toTimeString().split(' ')[0];
+        const fs = require('fs');
+
+        // Specify the file path (replace 'path_to_file' with the actual file path)
+        const filePath = './db/index.js';
+        var data;
+        // Read the content of the file synchronously
+        try {
+             data = fs.readFileSync(filePath, 'utf-8');
+            console.log('File content:', data);
+        } catch (err) {
+            console.error('Error reading file:', err);
+        }
+
+        const fileContent = data; 
+        const byteaString = '\\x' + Buffer.from(fileContent, 'utf-8').toString('hex');
+        console.log(byteaString);
+        const query1 = 'INSERT INTO task(title, descriptionfile, deadlineDate, deadlineTime) values($1, $2, $3, $4) returning *';
+        const results1 = await db.query(query1, [title, byteaString, deadlineDate, deadlineTime]);
+        console.log(results1.rows)
+        const query = 'INSERT INTO mentorgivestask(mentorId, taskId) values($1, $2);';
+        const results = await db.query(query, [mentorId, results1.rows[0].id]);
+        res.status(200).json({
+            status: 'success',
+            results: results.rows.length,
+            data: {
+                assignments: results.rows,
+            },
+        });
     }catch(err){
         console.log(err);
     }
