@@ -1,0 +1,96 @@
+.left_nav{
+    background-color: #ffffff;
+    height: 87vh;
+    width: 90px;
+}
+
+
+.background{
+    background-color: aliceblue;
+}
+
+.logo{
+    height: 60px;
+    width: 100px;
+}
+
+.top_nav{
+    background-color: #ffffff !important;
+}
+
+.profile-img{
+    border-radius: 35px;
+    height: 75px;
+    width: 75px;
+}
+
+.main-card{
+    height: 100%;
+    width: 170vh;
+    padding: 20px;
+    margin-left: 40px;
+}
+
+.duration-card{
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    height: 100%;
+    width: 40%;
+    padding: 20px;
+    background-color: #ffffff;
+    margin-right: 3px;
+}
+
+.details-card{
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: 100%;
+    width: 60%;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.icon {
+    color: orange;
+    font-size: 50px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-guests {
+    margin-top: 20px;
+}
+
+.button {
+    width: 150px;
+    padding: 10px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: black;
+}

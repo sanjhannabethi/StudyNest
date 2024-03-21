@@ -10,9 +10,9 @@ const Sidebar = () => {
   return (
     <nav className="sidebar">
       <ul className="nav-links1">
-        <li className={location.pathname === '/Home' ? 'active' : 'HomeIcon' }><Link to="/Home"><FontAwesomeIcon icon={faHome} /></Link></li>
+        <li className={location.pathname === '/home' ? 'active' : 'HomeIcon' }><Link to="/home"><FontAwesomeIcon icon={faHome} /></Link></li>
         <li className={location.pathname === '/assign' ? 'active' : 'HomeIcon'}><Link to="/assign"><FontAwesomeIcon icon={faClipboard} /></Link></li>
-        <li><FontAwesomeIcon icon={faCalendar} /></li>
+        <li className={location.pathname === '/calender' ? 'active' : 'HomeIcon' }><Link to="/calender"><FontAwesomeIcon icon={faCalendar} /></Link></li>
         {/* <li className={location.pathname === '/profile' ? 'active' : 'HomeIcon'}><Link to="/profile"><FontAwesomeIcon icon={faUser} /></Link></li> */}
       </ul>
     </nav>

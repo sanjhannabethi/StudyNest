@@ -23,14 +23,17 @@ const TaskMonitor = () => {
     if(pass === password){
       const status = 'pending'
       const taskId = Math.floor(Math.random() * 1000);
-      console.log(assi);
       setTask([...task, {taskId, text, assi, status}])
-      console.log(task)
     }
     else{
       alert("wrong pass");
     }
   }
+
+  useEffect(() => {
+    localStorage.setItem('task', JSON.stringify(task));
+  }, [task])
+
  
   return (
     <div className='home'>

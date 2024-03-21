@@ -148,7 +148,7 @@
 .home .left-section,.home .right-section {
     flex: 0 0 55vw ;
     margin-left:5vw;
-    background-color: rgb(210, 210, 210);
+    /* background-color: rgb(210, 210, 210); */
     border-radius: 10px; 
 }
 
@@ -160,7 +160,9 @@
 
 
 .question-statement, .turn-in-assignment {
-    background-color: rgba(255, 255, 255, 0.7);
+    /* background-color: rgba(255, 255, 255, 0.7);
+     */
+     background-color: rgb(210, 210, 210);
     padding: 20px;
     height: 60vh;
     margin-bottom: 20px;
@@ -223,7 +225,7 @@
 .assignment .left-section,.assign .right-section {
     flex: 0 0 55vw ;
     margin-left:5vw;
-    background-color: rgb(210, 210, 210);
+    /* background-color: rgb(211, 29, 29); */
     border-radius: 10px;
 }
 
@@ -235,8 +237,8 @@
 
 
 .assignment .question-statement,.assignment .turn-in-assignment {
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
+    background-color: rgb(210, 210, 210);
+    /* backdrop-filter: blur(10px); */
     padding: 20px;
     height: 60vh;
     margin-bottom: 20px;
@@ -251,11 +253,31 @@
     margin-top: 10px;
 }
 
-.assig.turn-in-assignment form label {
+.assignment .turn-in-assignment form label {
     display: block;
-    margin-bottom: 5px;
+    margin-top: 15px;
 }
-
+.assignment.turn-in-assignment .form-group {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    display: flex;
+  }
+  
+  input[type="integer"],
+  input[type="file"],
+  .assignment.turn-in-assignment .button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  input[type="file"] {
+    margin-bottom: 10px;
+  }
+  
+ 
+  
 /*profile*/
 .profile-popup-background {
     position: fixed;
@@ -337,3 +359,106 @@
     margin-bottom: 20px;
   }
   
+/*calender*/
+.cal .container4 {
+    margin-left: 5vw; 
+    padding: 20px;
+    position: relative;
+ 
+}
+
+.cal .content {
+    display: flex;
+}
+
+.cal .left-section,.cal .right-section {
+    flex: 0 0 55vw ;
+    margin-left:11.3vw;
+    margin-top: 5vh;
+    /* background-color: rgb(210, 210, 210); */
+    border-radius: 10px;
+}
+
+.cal .right-section {
+    flex: 0 0 25vw;
+    border-radius: 10px; 
+    margin-left: 20px; 
+}
+
+
+.cal .question-statement,.cal .turn-in-assignment {
+    /* background-color: rgba(255, 255, 255, 0.7);
+     */background-color: rgb(210, 210, 210);
+    /* backdrop-filter: blur(10px); */
+    padding: 20px;
+    height: 60vh;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.cal .question-statement h2, .cal .turn-in-assignment h2 {
+    margin-bottom: 10px;
+}
+.cal .form-group {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.cal label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.cal #name{
+    margin-left: 10px;
+}
+.cal #email{
+    margin-left: 14px;
+}
+
+.cal input[type="text"],
+.cal input[type="email"],
+.cal textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+.cal .form-group {
+    text-align: center;
+}
+
+.cal .add-guests {
+    margin-top: 20px; 
+}
+.cal .turn-in-assignment {
+    text-align: center;
+    /* margin-top: 50px; */
+    font-family: Arial, sans-serif;
+  }
+  
+ .cal .turn-in-assignment .icon {
+    font-size: 24px;
+  }
+  
+ .cal  .turn-in-assignment h1 {
+    font-size: 28px;
+    margin-top: 20px;
+  }
+  
+ .cal  .turn-in-assignment p {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+
+@media (max-width: 768px) {
+    .form-group,
+    .add-guests {
+        margin-bottom: 15px;
+    }
+}
+
+
+
