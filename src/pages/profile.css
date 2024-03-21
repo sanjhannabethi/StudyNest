@@ -1,0 +1,339 @@
+/*navbar*/
+.navbar {
+    background-color: #599a9c; /* Updated navbar color */
+    color: #fff;
+    padding-top: 3px;
+    min-height: 8vh;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    /* background-color: black; */
+    padding: 0% 12%;
+}
+.navbar .logos{
+    margin-left: 0;
+    display:flex;
+    flex-direction: row;
+}
+.navbar .logo1{
+    font-size: 1.7rem;
+    margin-left: auto;
+    padding-right:10px;
+
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-links li {
+    
+    font-size: 1.2rem;
+    margin-right: 20px;
+}
+
+
+.navbar .nav-links li a {
+    
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+
+/* Sidebar styles */
+.sidebar {
+    background-color: #545353;
+    color: #fff;
+    width: 7vw; 
+    height: 100vh; 
+    position: fixed;
+    top: 5vh;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+.fa-home:before{
+    color:black;
+}
+
+.nav-links1 {
+    list-style: none;
+    padding: 10;
+    margin: 10;
+    text-align: left; 
+}
+
+.nav-links1 li {
+    align-items: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    display: flex;
+}
+.nav-links1 li.active a  {
+    color: black;  
+ }
+ .nav-links1 li.HomeIcon a  {
+    color: white;  
+ }
+.user-profile {
+    margin-top: auto; 
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.user-name {
+    margin-right: 10px;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+/*button*/
+.button {
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+/* Main content layout */
+.home .container1 {
+    margin-left: 5vw; 
+    padding: 20px;
+}
+
+.home .content {
+    display: flex;
+}
+
+.home .left-section,.home .right-section {
+    flex: 0 0 55vw ;
+    margin-left:5vw;
+    background-color: rgb(210, 210, 210);
+    border-radius: 10px; 
+}
+
+.home .right-section {
+    flex: 0 0 20vw; 
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+
+.question-statement, .turn-in-assignment {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    height: 60vh;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.question-statement h2, .turn-in-assignment h2 {
+    margin-bottom: 10px;
+}
+
+.turn-in-assignment form {
+    margin-top: 10px;
+}
+
+.turn-in-assignment form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+
+/*table*/
+.taskMonitorTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.taskMonitorTable th,
+.taskMonitorTable td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.taskMonitorTable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.taskMonitorTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.taskMonitorTable tbody tr:hover {
+    background-color: #ddd;
+}
+
+
+/*assignment*/
+.container2 {
+    margin-left: 5vw; 
+    padding: 20px;
+    position: relative;
+    top: 14%;
+    right: -10%;
+}
+
+.assignment .content {
+    display: flex;
+}
+
+.assignment .left-section,.assign .right-section {
+    flex: 0 0 50vw ;
+    background-color: rgb(210, 210, 210);
+    border-radius: 10px;
+}
+
+.assignment .right-section {
+    flex: 0 0 20vw;
+    border-radius: 10px; 
+    margin-left: 20px; 
+}
+
+
+.assignment .question-statement,.assignment .turn-in-assignment {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    height: 60vh;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.assignment.question-statement h2, .assignment.turn-in-assignment h2 {
+    margin-bottom: 10px;
+}
+
+.assignment.turn-in-assignment form {
+    margin-top: 10px;
+}
+
+.assig.turn-in-assignment form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/*profile*/
+.profile-popup-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1000; 
+    backdrop-filter: blur(5px); /* Apply a blur effect to the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profile-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001; /* Ensure it's above the overlay */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  
+.profile-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .profile-card {
+    position: relative;
+    z-index: 1001; /* Ensure it's above the overlay */
+    width: 500px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #555;
+  }
+  .profile-card h2{
+    padding-top: 15px;
+    padding-bottom:10px ;
+    color: black;
+  }
+  .profile-card h4{
+    padding-top: 20px;
+    color:black;
+  }
+  .profile-card p{
+    color:black;
+    padding-top:5px;
+  }
+  .profile-card h5{
+    color:black;
+    padding-top:5px;
+  }
+  .name{
+    font-size: 1.2rem;
+  }
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
