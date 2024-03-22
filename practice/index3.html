@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Assignment Feedback</h1>
+    <form action="\submit" method="post">
+    <div class="message-container">
+        <div class="grader">
+            <input type="radio" name="grades" class="circle" placeholder="1" value="1">1
+            <input type="radio" name="grades" class="circle" placeholder="2" value="2">2
+            <input type="radio" name="grades" class="circle" placeholder="3" value="3">3
+            <input type="radio" name="grades" class="circle" placeholder="4" value="4">4
+            <input type="radio" name="grades" class="circle" placeholder="5" value="5">5
+            <input type="radio" name="grades" class="circle" placeholder="6" value="6">6
+            <input type="radio" name="grades" class="circle" placeholder="7" value="7">7
+            <input type="radio" name="grades" class="circle" placeholder="8" value="8">8
+            <input type="radio" name="grades" class="circle" placeholder="9" value="9">9
+            <input type="radio" name="grades" class="circle" placeholder="10" value="10">10
+        </div>
+
+        <h4>Remarks for the student</h4>
+        <input type="text" name="remark" id="remarks" placeholder="Enter your remarks">
+        <!-- <input type="file" name="fileInput" id="fileInput"><br> -->
+        <input type="submit" id="submit">
+
+    </div>
+    </form>
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>File is successfully uploaded</p>
+            <img src="tenor.gif">
+        </div>
+    </div>
+    </div>
+    <script src="index1.js"></script>
+</body>
+
+</html>

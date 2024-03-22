@@ -5,7 +5,7 @@ const TaskMonitor = () => {
   const [task, setTask] = useState([]);
   const [pass, setPass] = useState('')
   const [text, setText] = useState('');
-  const [assi, setAssi] = useState('A');
+  
 
 
   const handlePass = (e) => {
@@ -14,16 +14,16 @@ const TaskMonitor = () => {
   const handleText = (e) => {
     setText(e.target.value)
   }
-  const handleAssi = (e) => {
-    setAssi(e.target.value)
-  }
+  // const handleAssi = (e) => {
+  //   setAssi(e.target.value)
+  // }
   const handleSubmitForm = (e) => {
     e.preventDefault();
     const password = 'aaa';
     if(pass === password){
       const status = 'pending'
       const taskId = Math.floor(Math.random() * 1000);
-      setTask([...task, {taskId, text, assi, status}])
+      setTask([...task, {taskId, text, status}])
     }
     else{
       alert("wrong pass");
@@ -47,7 +47,6 @@ const TaskMonitor = () => {
                   <tr>
                     <th>Task ID</th>
                     <th>Task File</th>
-                    <th>Assigned To</th>
                     <th>Status</th>
                   </tr>
                 </thead>
@@ -56,7 +55,6 @@ const TaskMonitor = () => {
                     <tr key={t.taskId}>
                       <td>{t.taskId}</td>
                       <td>{t.text}</td>
-                      <td>{t.assi}</td>
                       <td>{t.status}</td>
                     </tr>
                   ))}
@@ -71,14 +69,17 @@ const TaskMonitor = () => {
                 <label htmlFor="password">Password:</label>
                 <input type="password" id="password" onChange={handlePass}/><br /><br />
 
-                <label htmlFor="taskText">Task:</label>
-                <textarea id="taskText" name="taskText" rows="10" cols="50" onChange={handleText}></textarea>
+                <label htmlFor="assignmentFile">Choose File:</label>
+                <input type="file" id="assignmentFile" name="assignmentFile" accept=".pdf,.doc,.docx" />
 
-                <select id="assignee" name="assignee" onChange={handleAssi}>
+                <label htmlFor="taskText">Task:</label>
+                <textarea id="taskText" name="taskText" rows="8" cols="30" onChange={handleText} ></textarea>
+
+                {/* <select id="assignee" name="assignee" >
                   <option value="A">A</option>
                   <option value="B">B</option>
                   <option value="C">C</option>
-                </select><br /><br />
+                </select><br /><br /> */}
                 <button type="submit" className="button button2" onClick={handleSubmitForm}>Submit Task</button>
               </form>
             </div>

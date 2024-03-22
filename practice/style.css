@@ -1,0 +1,128 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(45deg, rgb(3,172,219) 50%, white 50%);
+    margin-top: 40px;
+}
+.circle{
+    height: 40px;
+    width: 40px;
+    background-color: rgb(237, 226, 226);
+    color: rgb(57, 52, 52);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    padding: 5px;
+    margin: 10px;
+    border: 2px solid rgb(203, 197, 191);
+    text-shadow: 
+    -1px -1px 0 rgb(67, 66, 65),  
+    1px -1px 0 rgb(67, 66, 65),
+    -1px 1px 0 rgb(67, 66, 65),
+    1px 1px 0 rgb(67, 66, 65);
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 45px;
+    font-style: normal;
+}
+.grader{
+    margin: 10px auto;
+    display: flex;
+}
+.circle:hover{
+    background-color: rgb(90, 89, 89);
+    color: rgb(232, 234, 226);
+}
+.circle.active{
+    background-color: rgb(241, 228, 228);
+    color: rgb(232, 234, 226);
+}
+.message-container{
+    width: 45%;
+    background-color: #fafafa;
+    padding: 30px;
+    margin: 10px auto;
+}
+
+#remarks{
+    border: 1px rgb(174, 172, 172) solid !important;
+    color: black;
+    border-radius: 3px;
+
+}
+
+.content{
+    padding: 10px;
+    display: flex;
+    margin: 10px auto;
+}
+#myModal{
+    display: none;
+    position: fixed;
+    /* z-index: 1; */
+    left: 33%;
+    top: 2%;
+    width: 34%;
+    border-radius: 6px;
+    overflow: auto;
+    box-shadow: 5px 5px 9px rgb(181, 170, 170);
+}
+
+.modal-content {
+
+    background-color: #ffffff;
+    /* margin: 15% auto; */
+    /* padding: 20px; */
+/* 
+    height:25%; */
+    height: 100%;
+    padding-bottom: 40px;
+    padding-left: 10px;
+    padding-right: 8px;
+    border: 1px solid #dedbdb;
+    border-radius: 5px;
+    /* width: 97.19%; */
+}
+
+.close {
+    color: #908a8a;
+    float: right;
+    top: 0;
+    margin-top: 0px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    font-size: 30px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#submit {
+    background-color: #3eb9dd;
+    margin-top: 10px;
+    color: white;
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(0, 0.0001, 0,2, 0.3);
+    width: 88px;
+}
+#feedback{
+    margin: 0 auto ;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    border: 2px solid grey;
+    border-left: none;
+    border-right: none;
+}

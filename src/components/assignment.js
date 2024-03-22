@@ -1,5 +1,4 @@
 import React, {useState, useEffect }from 'react'
-
 import './index.css'; 
 const Assignment = () => {
     const [storedvalue, setStoredvalue] = useState([]);
@@ -23,7 +22,7 @@ const Assignment = () => {
                   <tr>
                     <th>Task ID</th>
                     <th>Task File</th>
-                    <th>Assigned To</th>
+                  
                     
                   </tr>
                 </thead>
@@ -32,7 +31,7 @@ const Assignment = () => {
                   <tr key={task.taskId}>
                     <td>{task.taskId}</td>
                     <td>{task.text}</td>
-                    <td>{task.assi}</td>
+                    
                   </tr>
                 ))}
               </tbody>
