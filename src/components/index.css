@@ -620,3 +620,57 @@ h1{
     border-right: none;
 }
 
+/*review*/
+.review .reviewbar{
+    background-color: #dde2f6;
+    min-height:40vh;
+    height:auto;
+    width:80vw;
+    margin:auto;
+
+}
+.review .reviewbar h2{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+.reviewtable table{
+    width: 94%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.reviewtable th,
+.reviewtable td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.reviewtable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.reviewtable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.reviewtable tbody tr:hover {
+    background-color: #ddd;
+}
+
+/* CSS */
+.radio-options {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .radio-options label {
+    margin-bottom: 5px;
+  }
+  
+  .radio-options input[type="radio"] {
+    margin-right: 5px;
+  }
+  
