@@ -1,4 +1,4 @@
-set search_path to studynest;
+
 
 drop table if exists client, admin, mentor, mentee, studyGroup, timeslot, mentortimeslots, menteetimeslots, task, assignmentSubmission, feedback, todoItem, studyGroupMentee, mentorGivesTask, menteeTasks, menteeTodoListItem cascade;
 drop type if exists role cascade;
