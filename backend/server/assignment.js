@@ -74,7 +74,7 @@ app.get('/v1/assignmentReview/:mentorId/:taskId', async(req, res)=>{
         console.log(req.params)
         const mentorId = req.params.mentorId;
         const taskId = req.params.taskId;
-        const results = await db.query(' SELECT menteeid, taskid, submissionfile, submissiondate, submissiontime, isVerified from assignmentsubmission where taskId in (select taskId from mentorgivestask where taskid=$1 and mentorid=$2)', [taskId, mentorId]);
+        const results = await db.query(' SELECT menteeid, firstname, lastname, taskid, submissionfile, submissiondate, submissiontime, isVerified from assignmentsubmission a  join client c on c.Id=a.menteeId  where taskId in (select taskId from mentorgivestask where taskid=$1 and mentorid=$2)', [taskId, mentorId]);
         res.status(200).json({
             status: 'success',
             results: results.rows.length,
@@ -89,8 +89,6 @@ app.get('/v1/assignmentReview/:mentorId/:taskId', async(req, res)=>{
             error: 'Internal Server Error',
         });
     }
-    
-})
 
 app.get('/v1/getAssignments/:menteeId', async(req, res)=>{
     try{
