@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Time Slot</title>
+</head>
+<body>
+  <h1>Add Time Slot</h1>
+  <form id="addTimeslotForm">
+    <label for="userId">User ID:</label>
+    <input type="text" id="userId" name="userId" required><br><br>
+
+    <label for="startTime">Start Time:</label>
+    <input type="time" id="startTime" name="startTime" required><br><br>
+    
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required><br><br>
+    
+    <label for="description">Description:</label><br>
+    <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+    
+    <label for="userType">User Type:</label>
+    <select id="userType" name="userType" required>
+      <option value="mentor">Mentor</option>
+      <option value="mentee">Mentee</option>
+    </select><br><br>
+    
+    <button type="submit">Confirm</button>
+  </form>
+
+  <h1>View Time Slots</h1>
+  <button id="viewTimeslots">View Time Slots</button>
+
+  <script>
+    document.getElementById('addTimeslotForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const userId = document.getElementById('userId').value;
+      const startTime = document.getElementById('startTime').value;
+      const date = document.getElementById('date').value;
+      const description = document.getElementById('description').value;
+      const userType = document.getElementById('userType').value;
+
+      try {
+        const response = await fetch('/add-timeslot', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ userId, startTime, date, description, userType })
+        });
+
+        if (response.ok) {
+          // Successful response
+          const data = await response.json();
+          alert(data.message);
+        } else {
+          // Error response
+          const errorMessage = await response.text();
+          alert('An error occurred while adding the time slot: ' + errorMessage);
+        }
+      } 
+      catch (error) {
+        console.error('Error adding time slot:', error);
+        alert('An error occurred while adding the time slot.');
+      }
+    })
+
+    document.getElementById('viewTimeslots').addEventListener('click', async () => {
+      try {
+        const response = await fetch('/timeslots');
+        const timeslots = await response.json();
+        console.log(timeslots);
+      } catch (error) {
+        console.error('Error fetching time slots:', error);
+        alert('An error occurred while fetching time slots.');
+      }
+    });
+  </script>
+</body>
+</html>
