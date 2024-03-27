@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './index.css'; // Import your CSS file here
+import StarRating from './StarRating';
 
 const Review = () => {
+  
 
   const [status, setStatus] = useState("");
   const [acceptarr,setAccept] = useState([]);
@@ -72,22 +74,25 @@ const Review = () => {
 
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem('assignment'));
-    setAssi(items || []); // Handling case where items might be null
+    setAssi(items || []); 
   }, []);
 
   return (
-    <div className="container6 review">
-      <div className="reviewbar">
+    <div className="container4 cal">
+      <div className='content'>
+        <div className="left-section">
+        <div className="question-statement">
         <h2>Review Assignments</h2>
         <div className="reviewtable">
           <table>
             <thead>
               <tr>
                 <th>Task Id</th>
-                <th>Task Title</th>
                 <th>Mentee Id</th>
+                <th>Mentee Name</th>
                 <th>Submitted file</th>
-                <th>Status</th>
+              
+              
               </tr>
             </thead>
             <tbody>
@@ -97,56 +102,42 @@ const Review = () => {
                   <td>{ele.title}</td>
                   <td>{ele.menteeId}</td>
                   <td>{ele.file}</td>
-                  <td className='radio-options' onClick={handleStatus}>
-                    <label>
-                      <input type="radio" value="accept" name={`${ele.taskId}`} />
-                      Accept
-                    </label>
-                    <label>
-                      <input type="radio" value="reject" name={`${ele.taskId}`} />
-                      Reject
-                    </label>
-                  </td>
-
+                 
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </div>
-      
-      <form action="/submit" method="post">
-      
-        <div className="message-container">
-        <h2>Assignment Feedback</h2>
-          <div className="grader">
-            <input type="radio" name="grades" className="circle" placeholder="1" value="1"/>1
-            <input type="radio" name="grades" className="circle" placeholder="2" value="2"/>2
-            <input type="radio" name="grades" className="circle" placeholder="3" value="3"/>3
-            <input type="radio" name="grades" className="circle" placeholder="4" value="4"/>4
-            <input type="radio" name="grades" className="circle" placeholder="5" value="5"/>5
-            <input type="radio" name="grades" className="circle" placeholder="6" value="6"/>6
-            <input type="radio" name="grades" className="circle" placeholder="7" value="7"/>7
-            <input type="radio" name="grades" className="circle" placeholder="8" value="8"/>8
-            <input type="radio" name="grades" className="circle" placeholder="9" value="9"/>9
-            <input type="radio" name="grades" className="circle" placeholder="10" value="10"/>10
-          </div>
-          <div className="form-group">
-                <label htmlFor="Task Id">Task ID:</label>
-                <input type="integer" id="Taskid" name="Taskid" required />
-            </div>
-            <div className="form-group">
-                <label htmlFor="Mentee Id">Mentee ID:</label>
-                <input type="integer" id="Menteeid" name="Menteeid" required />
-          </div>
-          <div className="form-group">
-                <label htmlFor="Remark">Remark:</label>
-                <input type="integer" id="Remarkid" name="Remarkid" required placeholder="Enter your remarks"/>
-          </div>
-          
-          {/* <input type="text" name="remark" id="remarks" placeholder="Enter your remarks"/> */}
-          <input type="submit" id="submit"/>
-        </div>
+      </div>
+      <form action="/submit" method="post" className='FeedbackForm'>
+      <div className="right-section">
+                    <div className="turn-in-assignment">
+                    <h2>Give Feedback</h2>
+                    
+                    <div className='starsgazzing'>
+                    <StarRating/>
+                    </div>
+                  
+                             <div className="form-group">
+                                <label htmlFor="name">TaskId:</label>
+                                <input type="text" id="TaskId" name="TaskId" required />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="email">MenteeId:</label>
+                                <input type="text" id="MenteeId" name="MenteeId" required />
+                            </div>
+                            <div className="form-group add-guests">
+                                <textarea id="reviews" name="reviews" rows="4" cols="50" placeholder="Please share your feedback for the assignment in brief"></textarea>
+                            </div>
+
+
+                
+                       
+                    </div>
+                </div>
+        
+        
       </form>
       <div className="modal" id="myModal">
         <div className="modal-content">
@@ -156,6 +147,8 @@ const Review = () => {
         </div>
       </div>
     </div>
+    </div>
+    
   );
 }
 

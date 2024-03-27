@@ -6,17 +6,19 @@ import {
   Outlet,
 } from 'react-router-dom'
 import Dashboard from './pages/dashboard'
-import Home from './pages/home'
+import AHome from './pages/Ahome'
+import BHome from './pages/Bhome'
 import Login from './pages/login'
 import Register from './pages/register'
 import { useSelector } from 'react-redux'
 import Userrole from './pages/userrole'
-
-import Home1 from './pages/home1'
-import Assign from './pages/assign'
+import AAssign from './pages/Aassign'
+import BAssign from './pages/Bassign'
 import Profile from './pages/profile'
-import Calender from './pages/calender'
-import Review from './pages/review'
+import ACalender from './pages/Acalender'
+import BCalender from './pages/Bcalender'
+import AReview from './pages/Areview'
+import BReview from './pages/Breview'
 
 const PrivateRoutes = () => {
   const { isAuth } = useSelector((state) => state.auth)
@@ -34,15 +36,19 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/home' element={<Home />} />
+      <Route path='/Aassign' exact element={<AAssign />} />
         <Route element={<PrivateRoutes />}>
+        {/* <Route path='/Ahome' element={<AHome />} /> */}
+        <Route path='/Bhome' element={<BHome />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/admin' element={<Userrole />} />
-          
-          <Route path='/assign' exact element={<Assign />} />
-          <Route path='/calender' exact element={<Calender />} />
+          {/* <Route path='/Aassign' exact element={<AAssign />} /> */}
+          <Route path='/Bassign' exact element={<BAssign />} />
+          <Route path='/Acalender' exact element={<ACalender />} />
+          <Route path='/Bcalender' exact element={<BCalender />} />
           <Route path='/profile' exact element={<Profile />} />
-          <Route path='/review' exact element={<Review />} />
+          <Route path='/Areview' exact element={<AReview />} />
+          <Route path='/Breview' exact element={<BReview />} />
         </Route>
 
         <Route element={<RestrictedRoutes />}>

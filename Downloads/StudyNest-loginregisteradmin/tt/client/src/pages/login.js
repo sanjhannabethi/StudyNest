@@ -34,7 +34,7 @@ const Login = () => {
         navigate("/admin");
       }
       else{
-        navigate("/home");
+        navigate("/Aassign");
       }
     } catch (error) {
       console.log(error.response.data.errors[0].msg)

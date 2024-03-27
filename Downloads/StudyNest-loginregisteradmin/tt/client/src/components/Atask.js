@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
 
-const TaskMonitor = () => {
+const ATaskMonitor = () => {
   const [task, setTask] = useState([]);
   const [localtask, setLocalTask] = useState(() => {
     const storedTasks = JSON.parse(localStorage.getItem('task'));
@@ -105,4 +105,4 @@ const TaskMonitor = () => {
   );
 }
 
-export default TaskMonitor;
+export default ATaskMonitor;

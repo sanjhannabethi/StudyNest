@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../components/navbar1'
-import Sidebar from '../components/sidebar'
-import Assignment from '../components/assignment'
+import Navbar from '../components/Anavbar1'
+import Sidebar from '../components/Asidebar'
+import Assignment from '../components/Aassignment'
 
 const Assign = () => {
   return (

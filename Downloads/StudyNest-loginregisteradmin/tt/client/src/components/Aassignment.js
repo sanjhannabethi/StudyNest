@@ -44,8 +44,9 @@ const Assignment = () => {
             <table className="taskMonitorTable">
               <thead>
                 <tr>
-                  <th>Task ID</th>
-                  <th>Task Title</th>
+                  <th>Description</th>
+                  <th>Task File</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>

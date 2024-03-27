@@ -6,10 +6,9 @@ import { faUser, faTimes ,faGraduationCap} from '@fortawesome/free-solid-svg-ico
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { fetchProtectedInfo, onLogout } from '../api/auth'
-import Layout from '../components/layout'
 import { unauthenticateUser } from '../redux/slices/authSlice'
 
-const Navbar = () => {
+const ANavbar = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate(); // Initialize useNavigate
@@ -20,13 +19,13 @@ const Navbar = () => {
 
   const getLogoText = (path) => {
     switch (path) {
-      case '/home':
+      case '/Ahome':
         return 'Task Monitor';
-      case '/assign':
+      case '/Aassign':
         return 'Assignment';
-      case '/calender':
+      case '/Acalender':
           return 'Meeting Scheduler';
-      case '/review':
+      case '/Areview':
         return 'Review and Feedback';
       default:
         return 'Task Monitor';
@@ -112,4 +111,4 @@ const Navbar = () => {
   );
 }
 
-export default Navbar;
+export default ANavbar;
