@@ -125,6 +125,30 @@ Router.get('/v1/tasksAssigned/:mentorId', async(req, res)=>{
 }
 );
 
+
+Router.post('/submit', async (req, res) => {
+    try {
+        const query = 'INSERT INTO feedback (menteeId,taskId,grades, remark) VALUES ($1, $2,$3,$4)';
+        const values = [req.body["grades"],req.body["remark"]];
+        await db.query(query, values);
+    } catch (error) {
+        console.error('Error processing form submission:', error);
+        res.status(500).send('Internal server error');
+    }
+});
+Router.get('/review/:menteeId', async (req, res) => {
+    try {
+        const query = 'SELECT grades, remark FROM feedback';
+        const result = await db.query(query);
+        const rows = result.rows; 
+        res.render("Areview.js", { row: rows });
+    } catch (error) {
+        console.error('Error retrieving data from the database:', error);
+        res.status(500).send('Internal server error');
+    }
+});
+
+
 Router.post('/v1/assignTask/:mentorId', async(req, res)=>{
     try{
          const title = req.body.title;
