@@ -27,7 +27,7 @@ router.get('/mentees', getMentees)
 router.post('/creategroup', createGroup)
 router.get('/getgroups', getGroups)
 router.get('/getrole',userAuth, getRole)
-Router.post('/v1/assignmentDropbox/:menteeId/:taskId', async (req, res)=>{
+router.post('/v1/assignmentDropbox/:menteeId/:taskId', async (req, res)=>{
     try {
         const currentDate = new Date();
         const currDate = currentDate.toISOString().split('T')[0];
@@ -57,7 +57,7 @@ Router.post('/v1/assignmentDropbox/:menteeId/:taskId', async (req, res)=>{
     }
 })
 
-Router.get('/v1/assignmentReview/:mentorId/:taskId', async(req, res)=>{
+router.get('/v1/assignmentReview/:mentorId/:taskId', async(req, res)=>{
     try{
         console.log(req.params)
         const mentorId = req.params.mentorId;
@@ -80,7 +80,7 @@ Router.get('/v1/assignmentReview/:mentorId/:taskId', async(req, res)=>{
     
 })
 
-Router.get('/v1/getAssignments/:menteeId', async(req, res)=>{
+router.get('/v1/getAssignments/:menteeId', async(req, res)=>{
     try{
         
         const menteeId = req.params.menteeId;
@@ -103,7 +103,7 @@ Router.get('/v1/getAssignments/:menteeId', async(req, res)=>{
 }
 );
 
-Router.get('/v1/tasksAssigned/:mentorId', async(req, res)=>{
+router.get('/v1/tasksAssigned/:mentorId', async(req, res)=>{
     try{
         const mentorId = req.params.mentorId;
         query = 'SELECT * FROM task t WHERE id IN(SELECT taskid FROM mentorgivestask WHERE mentorid=$1);'
@@ -125,7 +125,7 @@ Router.get('/v1/tasksAssigned/:mentorId', async(req, res)=>{
 }
 );
 
-Router.post('/v1/assignTask/:mentorId', async(req, res)=>{
+router.post('/v1/assignTask/:mentorId', async(req, res)=>{
     try{
          const title = req.body.title;
          const fileContent = req.body.descriptionFile;
