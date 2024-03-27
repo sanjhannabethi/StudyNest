@@ -13,6 +13,14 @@ const BNavbar = () => {
   const location = useLocation();
   const navigate = useNavigate(); 
 
+  const [user, setUser] = useState()
+
+  useEffect(()=>{
+    const profileinfo = JSON.parse(localStorage.getItem('main-user'));
+    // console.log(profileinfo)
+    setUser(profileinfo);
+  },[]);
+
   const toggleProfilePopup = () => {
     setIsProfileOpen(!isProfileOpen);
   };
@@ -75,7 +83,7 @@ const BNavbar = () => {
          <div className="logo">{logo}</div>
       </div>
         <ul className="nav-links">
-          <li><a href="#">Shrutika</a></li>
+          <li><a href="#">Mentor</a></li>
           <li>
             <button onClick={toggleProfilePopup}>
               <FontAwesomeIcon icon={faUser} />
@@ -89,6 +97,7 @@ const BNavbar = () => {
         </ul>
       </div>
       {/* Profile Popup */}
+      
       {isProfileOpen && (
         <div className="profile-popup-background">
           <div className="profile-card">
@@ -97,13 +106,11 @@ const BNavbar = () => {
             </button>
             <h2>User Profile</h2>
             <img src={profileAvatar} alt="Profile Avatar" className="profile-avatar" />
-            <p className="name">Shrutika Rathi</p>
-            <p>Group ID: <span>1</span></p>
-            <h5>Mentor Name: XYZ</h5>
-            <h4>Other Group Members</h4>
-            <p>A</p>
-            <p>B</p>
-            <p>C</p>
+            
+            <h3>{user.username}</h3>
+            <h5>{user.email}</h5>
+           
+            <h4>{user.userType}</h4>
           </div>
         </div>
       )}

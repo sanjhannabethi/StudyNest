@@ -348,22 +348,19 @@
     font-size: 1.5rem;
     color: #555;
   }
-  .profile-card h2{
-    padding-top: 15px;
-    padding-bottom:10px ;
+  .profile-card h3,h2{
+    /* padding-top: 15px; */
+    /* padding-bottom:10px ; */
     color: black;
   }
   .profile-card h4{
-    padding-top: 20px;
+    /* padding-top: 20px; */
     color:black;
   }
-  .profile-card p{
-    color:black;
-    padding-top:5px;
-  }
+  
   .profile-card h5{
     color:black;
-    padding-top:5px;
+    /* padding-top:5px; */
   }
   .name{
     font-size: 1.2rem;
@@ -412,6 +409,36 @@
     border-radius: 10px;
 }
 
+  
+  
+.time-option-container .time-option-button{
+    padding: 10px 30px;
+    margin-left: 5px;
+    background-color: transparent;
+    border: 1px solid  #8d99ae;
+    color:  #8d99ae;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.time-option-container .time-slot-button:hover {
+    background-color:  #8d99ae;
+    color: white;
+  }
+  .time-option-container .reset-button{
+    padding: 10px 30px;
+    margin-left: 5px;
+    background-color: transparent;
+    border: 1px solid  #8d99ae;
+    color:  #8d99ae;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.time-option-container .reset-button:hover {
+    background-color:  #8d99ae;
+    color: white;
+  }
 .cal .question-statement h2, .cal .turn-in-assignment h2 {
     margin-bottom: 10px;
 }

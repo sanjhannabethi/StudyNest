@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './index.css'; // Import your CSS file here
+import './index.css'; 
 
 const Review = () => {
 
@@ -75,6 +75,26 @@ const Review = () => {
     setAssi(items || []); // Handling case where items might be null
   }, []);
 
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+    console.log(data)
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/mentors');
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      const jsonData = await response.json();
+      setData(jsonData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
   return (
     <div className="container reviewA">
       <div className="reviewbarA">
@@ -104,9 +124,6 @@ const Review = () => {
           </table>
         </div>
       </div>
-      
-      
-     
     </div>
   );
 }

@@ -1,8 +1,12 @@
 import React from 'react';
 import '../index';
 import profileAvatar from './profile-avatar.png'; 
+import { useEffect, useState } from 'react';
 
 const Profile = () => {
+  
+
+  
   return (
     <div className='profile-container'>
       <div className='profile-background'></div>

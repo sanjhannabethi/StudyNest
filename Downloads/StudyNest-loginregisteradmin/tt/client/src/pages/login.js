@@ -25,16 +25,35 @@ const Login = () => {
       await onLogin(values)
       dispatch(authenticateUser())
       localStorage.setItem('isAuth', 'true')
-      const data = await getUserRole(); 
-      console.log(values);
+      const data = await getUserRole();
+      
+      // Retrieve userData array from localStorage
+    const userData = JSON.parse(localStorage.getItem('userData')) || [];
+
+    // Find the user object based on the email entered in the login form
+    const user = userData.find((user) => user.email === values.email);
+
+    if (user) {
+      // Store the user object in "main-user" key in localStorage
+      localStorage.setItem('main-user', JSON.stringify(user));
+    }
+      
+      // console.log(values);
       // Assuming this function fetches the user's role from the backend
-      const userRole = data.data.role; // Set the user's role in state
+      const userRole = data.data.role; 
+      // Set the user's role in state
       // console.log(userRole);
+
+
+
       if(userRole === 'Admin'){
         navigate("/admin");
       }
-      else{
+      else if(userRole ==='Mentee'){
         navigate("/Aassign");
+      }
+      else if(userRole ==='Mentor'){
+        navigate("/Bhome");
       }
     } catch (error) {
       console.log(error.response.data.errors[0].msg)

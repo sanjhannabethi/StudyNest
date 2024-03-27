@@ -19,16 +19,25 @@ const Register = () => {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  
+  const [usersData, setUsersData] = useState([]);
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
+  // console.log(values);
+  useEffect(() => {
+    // Retrieve userData from localStorage when the component mounts
+    const userDataFromStorage = JSON.parse(localStorage.getItem('userData'));
+    if (userDataFromStorage) {
+      setUsersData(userDataFromStorage);
+    }
+  }, []); 
+  
+  // Run this effect only once when the component mounts
   const onSubmit = async (e) => {
     e.preventDefault();
-    
-    
+
     if (!values.username || !values.email || !values.password || !values.cnfpassword) {
       setError('Please fill in all required fields.');
       return;
@@ -43,7 +52,15 @@ const Register = () => {
       const { data } = await onRegistration(values);
       setError('');
       setSuccess(data.message);
+
+      // Update usersData with the new value and store in localStorage
+      const updatedUsersData = [...usersData, values];
+      setUsersData(updatedUsersData);
+      localStorage.setItem('userData', JSON.stringify(updatedUsersData));
+
+      // Clear form fields
       setValues({ username: '', email: '', password: '', cnfpassword: '', userType: userTypes[0] });
+
       navigate("/login");
     } catch (error) {
       setError(error.response?.data?.errors?.[0]?.msg);
@@ -57,6 +74,7 @@ const Register = () => {
       document.body.style.backgroundColor = '';
     };
   }, []);
+
 
   return (
     <Layout>

@@ -38,11 +38,10 @@ const App = () => {
       <Routes>
       <Route path='/Aassign' exact element={<AAssign />} />
         <Route element={<PrivateRoutes />}>
-        {/* <Route path='/Ahome' element={<AHome />} /> */}
+        
         <Route path='/Bhome' element={<BHome />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/admin' element={<Userrole />} />
-          {/* <Route path='/Aassign' exact element={<AAssign />} /> */}
           <Route path='/Bassign' exact element={<BAssign />} />
           <Route path='/Acalender' exact element={<ACalender />} />
           <Route path='/Bcalender' exact element={<BCalender />} />
@@ -50,7 +49,6 @@ const App = () => {
           <Route path='/Areview' exact element={<AReview />} />
           <Route path='/Breview' exact element={<BReview />} />
         </Route>
-
         <Route element={<RestrictedRoutes />}>
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />

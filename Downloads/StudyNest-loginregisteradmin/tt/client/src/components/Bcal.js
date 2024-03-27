@@ -8,27 +8,58 @@ function App() {
   const [timeSlots, setTimeSlots] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
+  const [selectedTimeOption, setSelectedTimeOption] = useState("");
 
   useEffect(() => {
     // Example function to fetch or determine available time slots
     const fetchTimeSlots = () => {
-      // Simulate fetching time slots based on the selected date
-      const slots = [
-        "9:00 AM",
-        "9:15 AM",
-        "9:30 AM",
-        "9:45 AM",
-        "10:00 AM",
-        "10:15 AM",
-        "10:30 AM",
-        "10:45 AM",
-        
-      ];
+      // Simulate fetching time slots based on the selected date and time option
+      let slots = [];
+      switch (selectedTimeOption) {
+        case "morning":
+          slots = [
+            "9:00 AM",
+            "9:15 AM",
+            "9:30 AM",
+            "9:45 AM",
+            "10:00 AM",
+            "10:15 AM",
+            "10:30 AM",
+            "10:45 AM",
+          ];
+          break;
+        case "afternoon":
+          slots = [
+            "12:00 PM",
+            "12:15 PM",
+            "12:30 PM",
+            "12:45 PM",
+            "1:00 PM",
+            "1:15 PM",
+            "1:30 PM",
+            "1:45 PM",
+          ];
+          break;
+        case "evening":
+          slots = [
+            "4:00 PM",
+            "4:15 PM",
+            "4:30 PM",
+            "4:45 PM",
+            "5:00 PM",
+            "5:15 PM",
+            "5:30 PM",
+            "5:45 PM",
+          ];
+          break;
+        default:
+          slots = [];
+      }
       setTimeSlots(slots);
     };
 
     fetchTimeSlots();
-  }, [selectedDate]);
+  }, [selectedDate, selectedTimeOption]);
 
   const handleDateChange = (value) => {
     setDate(value);
@@ -48,10 +79,13 @@ function App() {
     );
   };
 
+  const handleTimeOptionChange = (option) => {
+    setSelectedTimeOption(option);
+  };
+
   return (
     <div className="app">
       <div className="card">
-       
         <div className="content">
           <div className="left-column">
             <div className="meeting-type">
@@ -104,6 +138,44 @@ function App() {
                     )}
                   </div>
                 ))}
+                {!selectedTimeOption && (
+                  <div className="time-option-container">
+                    <button
+                      className={`time-option-button ${
+                        selectedTimeOption === "morning" ? "selected" : ""
+                      }`}
+                      onClick={() => handleTimeOptionChange("morning")}
+                    >
+                      Morning
+                    </button>
+                    <button
+                      className={`time-option-button ${
+                        selectedTimeOption === "afternoon" ? "selected" : ""
+                      }`}
+                      onClick={() => handleTimeOptionChange("afternoon")}
+                    >
+                      Afternoon
+                    </button>
+                    <button
+                      className={`time-option-button ${
+                        selectedTimeOption === "evening" ? "selected" : ""
+                      }`}
+                      onClick={() => handleTimeOptionChange("evening")}
+                    >
+                      Evening
+                    </button>
+                  </div>
+                )}
+                {selectedTimeOption && (
+                  <div className="time-option-container">
+                    <button
+                      className="reset-button"
+                      onClick={() => handleTimeOptionChange("")}
+                    >
+                      Reset
+                    </button>
+                  </div>
+                )}
               </div>
             )}
           </div>
